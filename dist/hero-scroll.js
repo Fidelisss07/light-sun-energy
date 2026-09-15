@@ -11,7 +11,7 @@ let target = 0, position = 0, painted = -1, raf = 0, lastTime = 0;
 let ready = false, active = true, direction = 1, generation = 0;
 let width = 1, height = 1, queue = [];
 const clamp = n => Math.max(0, Math.min(LAST, n));
-const url = n => `assets/hero-frames/frame-${String(n).padStart(3, '0')}.webp?v=2`;
+const url = n => `assets/hero-frames/frame-${String(n).padStart(3, '0')}.webp?v=3`;
 
 function trimCache() {
   if (cache.size <= 12) return;
@@ -53,14 +53,15 @@ function pump() {
 function paint(n) {
   const bitmap = cache.get(n);
   if (!bitmap) return false;
-  // Preserve the entire source frame: never crop a portrait film to a landscape viewport.
-  const scale = Math.min(width/bitmap.width,height/bitmap.height);
+  // Source frames are now landscape (1920x1080), close to most hero viewports,
+  // so a plain cover-fill (like the static hero photo) is enough: little to no
+  // crop on typical screens, a symmetric crop only on very wide/narrow windows.
+  const scale = Math.max(width/bitmap.width,height/bitmap.height);
   const w=bitmap.width*scale, h=bitmap.height*scale;
-  const landscape=width/height>1.15;
-  const x=landscape ? width-w-Math.min(width*.06,(width-w)/2) : (width-w)/2;
+  const x=(width-w)/2, y=(height-h)/2;
   ctx.fillStyle='#101211';ctx.fillRect(0,0,width,height);
   ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
-  ctx.drawImage(bitmap,x,(height-h)/2,w,h);
+  ctx.drawImage(bitmap,x,y,w,h);
   painted=n; canvas.dataset.frame=String(n);
   canvas.classList.add('is-ready');
   return true;
