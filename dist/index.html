@@ -24,8 +24,10 @@
     <nav id="mobile-nav" class="mobile-nav" aria-label="Navegação no celular" hidden><a href="#inicio">Início</a><a href="#solucoes">Soluções</a><a href="#montagem">Montagem 3D</a><a href="#projetos">Projetos</a><span>São Paulo, SP</span></nav>
   </header>
   <main id="conteudo">
-    <section class="hero" id="inicio" aria-labelledby="hero-title">
+    <div class="hero-scroll" id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
       <img class="hero-image" src="assets/casa-solar.jpg" alt="Imagem ilustrativa de uma casa contemporânea com piscina e painéis solares no telhado, ao pôr do sol" fetchpriority="high" width="1672" height="941">
+      <canvas class="hero-film" aria-hidden="true"></canvas>
       <div class="hero-shade"></div>
       <div class="hero-content container">
         <p class="eyebrow hero-eyebrow"><span class="tiny-sun" aria-hidden="true">✳</span> ENERGIA SOLAR · SÃO PAULO</p>
@@ -33,8 +35,10 @@
         <p class="hero-description">Venda e instalação de painéis solares para <br>quem quer dar o próximo passo.</p>
         <a class="button button-lime" href="#projetos">Explore os projetos <span aria-hidden="true">↗</span></a>
       </div>
-      <div class="hero-bottom container"><p>Seu espaço. Sua energia.<br><strong>Um novo jeito de viver.</strong></p><span class="image-credit">Imagem ilustrativa</span><a class="scroll-link" href="#solucoes">EXPLORE <span aria-hidden="true">↓</span></a></div>
+      <div class="hero-bottom container"><p class="hero-scroll-hint">Role para explorar a casa<br><strong>Volte a rolagem para rever.</strong></p><span class="image-credit">Imagem ilustrativa</span><a class="scroll-link" href="#solucoes">CONTINUAR <span aria-hidden="true">↓</span></a></div>
+      <div class="hero-film-progress" aria-hidden="true"><span></span></div>
     </section>
+    </div>
     <section class="solutions container section-space" id="solucoes" aria-labelledby="solutions-title">
       <div class="section-topline"><p class="eyebrow"><span class="section-number">01 /</span> ENERGIA COM PROPÓSITO</p><span class="small-note">Venda e instalação de painéis solares</span></div>
       <div class="solutions-heading"><h2 id="solutions-title">O potencial do sol.<br><span>Na medida do seu espaço.</span></h2><p>Da sua casa ao seu negócio, uma nova forma de aproveitar cada dia. Equipamentos e montagem de sistemas solares em São Paulo.</p></div>
@@ -103,6 +107,7 @@
   </footer>
   <script type="importmap">{"imports":{"three":"./assets/three/three.module.min.js"}}</script>
   <script src="app.js" defer></script>
+  <script type="module" src="hero-scroll.js"></script>
   <script type="module" src="assembly.js"></script>
 </body>
 </html>
