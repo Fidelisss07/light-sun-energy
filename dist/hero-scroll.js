@@ -11,14 +11,14 @@ let target = 0, position = 0, painted = -1, raf = 0, lastTime = 0;
 let ready = false, active = true, direction = 1, generation = 0;
 let width = 1, height = 1, queue = [];
 const clamp = n => Math.max(0, Math.min(LAST, n));
-const url = n => `assets/hero-frames/frame-${String(n).padStart(3, '0')}.webp`;
+const url = n => `assets/hero-frames/frame-${String(n).padStart(3, '0')}.webp?v=2`;
 
 function trimCache() {
-  if (cache.size <= 24) return;
+  if (cache.size <= 12) return;
   const center = Math.round(target);
   const farthest = [...cache.keys()].sort((a,b) => Math.abs(b-center)-Math.abs(a-center));
   for (const n of farthest) {
-    if (cache.size <= 24) break;
+    if (cache.size <= 12) break;
     if (n === painted) continue;
     cache.get(n).close(); cache.delete(n);
   }
@@ -39,7 +39,7 @@ function load(n) {
 function prefetch() {
   const center = Math.round(target);
   queue = [center];
-  for (let d=1; d<=12; d++) queue.push(center+d*direction,center-d*direction);
+  for (let d=1; d<=6; d++) queue.push(center+d*direction,center-d*direction);
   queue = [...new Set(queue.filter(n=>n>=0 && n<COUNT))];
   pump();
 }
@@ -53,10 +53,14 @@ function pump() {
 function paint(n) {
   const bitmap = cache.get(n);
   if (!bitmap) return false;
-  // Cover the viewport without distorting the supplied portrait film.
-  const scale = Math.max(width/bitmap.width,height/bitmap.height);
+  // Preserve the entire source frame: never crop a portrait film to a landscape viewport.
+  const scale = Math.min(width/bitmap.width,height/bitmap.height);
   const w=bitmap.width*scale, h=bitmap.height*scale;
-  ctx.drawImage(bitmap,(width-w)/2,(height-h)*.52,w,h);
+  const landscape=width/height>1.15;
+  const x=landscape ? width-w-Math.min(width*.06,(width-w)/2) : (width-w)/2;
+  ctx.fillStyle='#101211';ctx.fillRect(0,0,width,height);
+  ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality='high';
+  ctx.drawImage(bitmap,x,(height-h)/2,w,h);
   painted=n; canvas.dataset.frame=String(n);
   canvas.classList.add('is-ready');
   return true;
@@ -87,7 +91,7 @@ function sync() {
   if (ready) { prefetch(); schedule(); }
 }
 function resize() {
-  const rect=hero.getBoundingClientRect(), dpr=Math.min(devicePixelRatio||1,1.5);
+  const rect=hero.getBoundingClientRect(), dpr=Math.min(devicePixelRatio||1,2);
   width=Math.round(rect.width*dpr);height=Math.round(rect.height*dpr);
   canvas.width=width;canvas.height=height;
   if (painted>=0) paint(painted);

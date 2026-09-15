@@ -41,3 +41,13 @@
 
 .hero-film{z-index:-2}.hero-scroll.is-film .hero{min-height:100svh}.hero-scroll.is-film h1{font-size:clamp(43px,min(6.1vw,9svh),94px)}
 @media(max-height:700px){.hero-scroll.is-film .hero-content{padding-top:135px}.hero-scroll.is-film .hero-eyebrow{margin-bottom:15px}.hero-scroll.is-film .hero-description{margin-top:18px}.hero-scroll.is-film .button-lime{margin-top:18px}}
+
+/* The supplied film is portrait; keep its full composition and give copy its own space. */
+.hero-scroll.is-film .hero-shade{background:linear-gradient(180deg,#10121150,transparent 22%,transparent 80%,#10121185)}
+@media(min-aspect-ratio:115/100){
+.hero-scroll.is-film .hero-content{position:relative;z-index:1;width:calc(100% - 112px);margin-inline:auto}
+.hero-scroll.is-film h1{font-size:clamp(43px,min(5.2vw,9svh),84px);max-width:48%}
+.hero-scroll.is-film .hero-description{max-width:40%}
+}
+
+@media(max-aspect-ratio:115/100){.hero-scroll.is-film .hero-shade{background:linear-gradient(90deg,#10121180,#10121108),linear-gradient(180deg,#10121130,transparent 75%,#10121170)}}
