@@ -1,17 +1,16 @@
-# Site de energia solar
+# Light Sun Energy — Solução Ambiental
 
-Site estático em português, com layout adaptável, menu transparente, hero de arquitetura e galeria de nove instalações reais. A galeria permite ampliar fotos e navegar por botões ou setas do teclado; Escape fecha a ampliação.
+Site estático em português, com layout adaptável, menu transparente, hero de arquitetura, demonstração interativa 3D e galeria de nove instalações reais. A galeria permite ampliar fotos e navegar por botões ou setas do teclado; Escape fecha a ampliação. A identidade usa preto, branco, amarelo e laranja da logo enviada pelo usuário.
 
 ## Informações confirmadas
 
 - Venda e montagem de painéis solares.
 - São Paulo, SP.
 - As nove fotografias de instalações foram fornecidas pelo usuário.
+- Marca Light Sun Energy — Solução Ambiental, com logo fornecida pelo usuário.
 
 ## Informações pendentes
 
-- Nome da empresa: `Solar` é uma marca tipográfica provisória.
-- Logo oficial, caso exista.
 - Número de WhatsApp e endereço de e-mail. Não há contatos fictícios ou formulários com envio simulado.
 
 ## Arquivos
@@ -19,10 +18,23 @@ Site estático em português, com layout adaptável, menu transparente, hero de 
 - `dist/index.html`: conteúdo e metadados.
 - `dist/styles.css`: identidade visual e responsividade.
 - `dist/app.js`: menu e galeria.
+- `dist/assembly.js`: modelo 3D ilustrativo, câmera e montagem reversível em 16 segundos.
+- `dist/assets/three/`: Three.js 0.180.0 e OrbitControls, fornecidos localmente com licença MIT.
+- `dist/assets/light-sun-energy.png`: logo em PNG com transparência real. No cabeçalho e no rodapé, uma composição CSS adapta os elementos pretos para branco e mantém o sol colorido.
 - `dist/assets/projeto-01.jpg` até `projeto-09.jpg`: imagens reais, preservadas.
 - `dist/assets/casa-solar.jpg`: imagem ilustrativa, gerada por IA e identificada na página.
 
 O site não coleta dados e não exige banco de dados. As fontes Manrope e Barlow Condensed são carregadas do Google Fonts, com alternativas locais de sistema.
+
+## Demonstração de montagem
+
+O modelo usa `projeto-03.jpg` como referência: cobertura residencial, volume elevado e duas fileiras de sete painéis. É uma reconstrução aproximada sem medidas de engenharia, declarada como ilustrativa na interface. O telhado fica presente; suportes, trilhos e painéis são posicionados por uma função determinística do progresso. É possível retroceder livremente, reproduzir, pausar, reiniciar, girar a câmera ou aproximar/afastar. A reprodução começa somente por iniciativa do visitante e pausa ao sair da seção ou ocultar a aba. Sem suporte a WebGL, a foto real e uma explicação substituem a cena.
+
+Referências técnicas: https://threejs.org/docs/pages/OrbitControls.html e https://threejs.org/manual/en/installation.html.
+
+## Logo transparente
+
+Arquivo final: `dist/assets/light-sun-energy.png`, 1792 × 878 pixels, RGBA. Produzido com a ferramenta integrada de edição de imagens a partir da logo enviada. Prompt: Preserve precisely the original logo geometry, black slanted parallelogram, yellow-to-orange gradient sun, stacked bold words LIGHT SUN / ENERGY and subtitle Solução Ambiental. Remove only the light background to actual alpha transparency. Keep small clear padding, exact spelling, original colors and layout. No checkerboard, backdrop or shadow. A tentativa de arquivo separado com tinta branca foi descartada por não produzir transparência; a aplicação clara do site usa o arquivo transparente válido com CSS.
 
 ## Imagem principal
 

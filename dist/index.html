@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#173b30">
+  <meta name="theme-color" content="#171717">
   <meta name="description" content="Venda e instalação de painéis solares em São Paulo, SP. Conheça nossos serviços e veja fotos de instalações realizadas.">
-  <title>Solar — Energia para viver melhor</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23173b30'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23dcf777'/%3E%3Cpath d='M16 3v3m0 20v3M3 16h3m20 0h3M7 7l2 2m14 14 2 2M7 25l2-2M23 9l2-2' stroke='%23dcf777' stroke-width='2'/%3E%3C/svg%3E">
+  <title>Light Sun Energy — Solução Ambiental</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23171717'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23ffbc2d'/%3E%3Cpath d='M16 3v3m0 20v3M3 16h3m20 0h3M7 7l2 2m14 14 2 2M7 25l2-2M23 9l2-2' stroke='%23ffbc2d' stroke-width='2'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,12 +16,12 @@
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <header class="site-header">
     <div class="header-inner">
-      <a class="brand" href="#inicio" aria-label="Solar — início"><span class="brand-name">solar<span class="brand-dot">.</span></span><span class="brand-description">ENERGIA QUE TRANSFORMA</span></a>
-      <nav class="desktop-nav" aria-label="Navegação principal"><a href="#inicio" class="nav-active">Início</a><a href="#solucoes">Soluções</a><a href="#projetos">Projetos</a></nav>
+      <a class="brand" href="#inicio" aria-label="Light Sun Energy — início"><span class="brand-lockup"><img class="brand-logo brand-logo-base" src="assets/light-sun-energy.png" width="1792" height="878" alt="Light Sun Energy — Solução Ambiental"><img class="brand-logo brand-logo-sun" src="assets/light-sun-energy.png" width="1792" height="878" alt="" aria-hidden="true"></span></a>
+      <nav class="desktop-nav" aria-label="Navegação principal"><a href="#inicio" class="nav-active">Início</a><a href="#solucoes">Soluções</a><a href="#montagem">Montagem 3D</a><a href="#projetos">Projetos</a></nav>
       <span class="header-location"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>São Paulo, SP</span>
       <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
     </div>
-    <nav id="mobile-nav" class="mobile-nav" aria-label="Navegação no celular" hidden><a href="#inicio">Início</a><a href="#solucoes">Soluções</a><a href="#projetos">Projetos</a><span>São Paulo, SP</span></nav>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Navegação no celular" hidden><a href="#inicio">Início</a><a href="#solucoes">Soluções</a><a href="#montagem">Montagem 3D</a><a href="#projetos">Projetos</a><span>São Paulo, SP</span></nav>
   </header>
   <main id="conteudo">
     <section class="hero" id="inicio" aria-labelledby="hero-title">
@@ -44,8 +44,37 @@
         <article class="service"><span class="service-index">03</span><h3>Da escolha à montagem</h3><p>Venda de equipamentos e instalação de painéis solares para colocar o seu projeto em prática.</p></article>
       </div>
     </section>
+    <section class="assembly-section section-space" id="montagem" aria-labelledby="assembly-title">
+      <div class="container">
+        <div class="section-topline"><p class="eyebrow"><span class="section-number">02 /</span> PROJETO EM MOVIMENTO</p><span class="small-note">Explore a montagem em 3D</span></div>
+        <div class="assembly-heading"><h2 id="assembly-title">Cada painel.<br><span>Uma transformação.</span></h2><p>Do telhado vazio à instalação completa. <br>Dê play ou arraste a linha do tempo para acompanhar.</p></div>
+        <div class="assembly-shell">
+          <div class="assembly-view" aria-busy="true">
+            <canvas id="assembly-canvas" tabindex="0" role="img" aria-label="Modelo 3D de uma cobertura residencial. Arraste para girar. Use a linha do tempo abaixo para montar ou retirar os painéis."></canvas>
+            <div class="assembly-view-top"><span class="assembly-view-label">COBERTURA RESIDENCIAL</span><button id="assembly-reset-view" class="assembly-small-button" aria-label="Restaurar ângulo de visão" disabled>Restaurar vista ↺</button></div>
+            <div class="assembly-loading" role="status"><span class="assembly-loading-ring"></span><p>Preparando o projeto em 3D…</p></div>
+            <div class="assembly-fallback" hidden><img src="assets/projeto-03.jpg" alt="Foto real da cobertura residencial usada como referência"><p>A visualização 3D não está disponível neste navegador. Você ainda pode conhecer o projeto na foto original.</p></div>
+            <div class="assembly-view-bottom"><span>Arraste o modelo para girar</span><div class="assembly-zoom"><button id="assembly-zoom-out" aria-label="Afastar modelo" disabled>−</button><button id="assembly-zoom-in" aria-label="Aproximar modelo" disabled>+</button></div></div>
+          </div>
+          <aside class="assembly-story" aria-label="Etapas da montagem">
+            <p class="assembly-story-eyebrow">A TRANSFORMAÇÃO</p>
+            <div class="assembly-step" data-stage="0" aria-current="step"><span>01</span><div><h3>O ponto de partida</h3><p>A cobertura, antes de receber os painéis.</p></div></div>
+            <div class="assembly-step" data-stage="1"><span>02</span><div><h3>A estrutura</h3><p>Os suportes que recebem os módulos.</p></div></div>
+            <div class="assembly-step" data-stage="2"><span>03</span><div><h3>Painel por painel</h3><p>A instalação ganha forma sobre o telhado.</p></div></div>
+            <div class="assembly-step" data-stage="3"><span>04</span><div><h3>Um novo cenário</h3><p>Todos os painéis em seu lugar.</p></div></div>
+            <div class="assembly-reference"><img src="assets/projeto-03.jpg" alt="Foto original usada como referência para o modelo 3D" width="1600" height="1066" loading="lazy"><p>Baseado em uma instalação real.<small>Reconstrução ilustrativa, sem escala exata.</small></p></div>
+          </aside>
+          <div class="assembly-player">
+            <button id="assembly-play" class="assembly-play" disabled aria-label="Reproduzir montagem"><span aria-hidden="true">▶</span><span class="assembly-play-text">Reproduzir</span></button>
+            <div class="assembly-timeline"><label for="assembly-progress"><span id="assembly-stage-label">Telhado sem painéis</span><output id="assembly-time" for="assembly-progress">00:00 / 00:16</output></label><input id="assembly-progress" type="range" min="0" max="1000" step="1" value="0" disabled aria-label="Progresso da montagem" aria-valuetext="0% — Telhado sem painéis"><div class="assembly-timeline-labels"><span>Antes</span><span>Instalação completa</span></div></div>
+            <button id="assembly-restart" class="assembly-restart" aria-label="Voltar ao telhado vazio" disabled>↺<span>Reiniciar</span></button>
+          </div>
+        </div>
+        <p class="assembly-note">Reconstrução 3D ilustrativa de uma instalação real, sem escala exata. A execução de cada sistema depende do projeto técnico e das condições do imóvel.</p>
+      </div>
+    </section>
     <section class="projects section-space" id="projetos" aria-labelledby="projects-title">
-      <div class="container"><div class="section-topline"><p class="eyebrow"><span class="section-number">02 /</span> NA PRÁTICA</p><span class="small-note">Instalações realizadas</span></div>
+      <div class="container"><div class="section-topline"><p class="eyebrow"><span class="section-number">03 /</span> NA PRÁTICA</p><span class="small-note">Instalações realizadas</span></div>
       <div class="projects-heading"><h2 id="projects-title">Projetos reais.<br><span>Novas perspectivas.</span></h2><p>Conheça as instalações que já levam a energia do sol a diferentes espaços.</p></div>
       <div class="project-grid">
         <button class="project-card" data-project="0" aria-label="Ampliar foto: painéis sobre cobertura residencial"><span class="project-image-wrap"><img src="assets/projeto-01.jpg" alt="Vista de cima de painéis solares organizados em uma cobertura residencial" width="1600" height="1066" loading="lazy"><span class="project-open" aria-hidden="true">↗</span></span><span class="project-caption"><span>Cobertura residencial</span><span>01</span></span></button>
@@ -67,11 +96,13 @@
   </dialog>
   <footer class="footer footer-new">
     <div class="container">
-      <div class="footer-intro"><h2>O amanhã começa<br>com a energia de hoje.</h2><nav aria-label="Navegação do rodapé"><a href="#inicio">Início</a><a href="#solucoes">Soluções</a><a href="#projetos">Projetos</a></nav><a href="#inicio" class="footer-top-link" aria-label="Voltar ao topo"><span aria-hidden="true">↑</span></a></div>
-      <div class="footer-signature"><a href="#inicio" class="footer-wordmark" aria-label="Solar — início">solar<span>.</span></a><p>Venda e instalação<br>de energia solar.<span>São Paulo, SP</span></p></div>
-      <div class="footer-end"><span>ENERGIA QUE TRANSFORMA</span><span>Seu espaço. Sua energia.</span></div>
+      <div class="footer-intro"><h2>O amanhã começa<br>com a energia de hoje.</h2><nav aria-label="Navegação do rodapé"><a href="#inicio">Início</a><a href="#solucoes">Soluções</a><a href="#montagem">Montagem 3D</a><a href="#projetos">Projetos</a></nav><a href="#inicio" class="footer-top-link" aria-label="Voltar ao topo"><span aria-hidden="true">↑</span></a></div>
+      <div class="footer-signature"><a href="#inicio" class="footer-brand-link" aria-label="Light Sun Energy — início"><span class="brand-lockup"><img class="brand-logo brand-logo-base" src="assets/light-sun-energy.png" width="1792" height="878" alt="Light Sun Energy — Solução Ambiental"><img class="brand-logo brand-logo-sun" src="assets/light-sun-energy.png" width="1792" height="878" alt="" aria-hidden="true"></span></a><p>Venda e instalação<br>de energia solar.<span>São Paulo, SP</span></p></div>
+      <div class="footer-end"><span>LIGHT SUN ENERGY · SOLUÇÃO AMBIENTAL</span><span>Seu espaço. Sua energia.</span></div>
     </div>
   </footer>
+  <script type="importmap">{"imports":{"three":"./assets/three/three.module.min.js"}}</script>
   <script src="app.js" defer></script>
+  <script type="module" src="assembly.js"></script>
 </body>
 </html>
