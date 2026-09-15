@@ -20,6 +20,7 @@ Site estático em português, com layout adaptável, menu transparente, hero de 
 - `dist/app.js`: menu e galeria.
 - `dist/assembly.js`: modelo 3D ilustrativo, câmera e montagem reversível em 16 segundos.
 - `dist/assets/three/`: Three.js 0.180.0 e OrbitControls, fornecidos localmente com licença MIT.
+- `dist/assets/favicon.png`: ícone da aba, 256 × 256, recortado do símbolo da logo (sol e parallelogramo, sem o texto) com fundo transparente.
 - `dist/assets/light-sun-energy.png`: logo em PNG com transparência real. No cabeçalho e no rodapé, uma composição CSS adapta os elementos pretos para branco e mantém o sol colorido.
 - `dist/assets/projeto-01.jpg` até `projeto-09.jpg`: imagens reais, preservadas.
 - `dist/assets/casa-solar.jpg`: imagem ilustrativa, gerada por IA e identificada na página.
