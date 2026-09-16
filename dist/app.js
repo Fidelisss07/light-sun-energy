@@ -24,7 +24,7 @@ function showPhoto(index) {
   const thumbnail = card.querySelector('img');
   lightboxImage.src = thumbnail.src;
   lightboxImage.alt = thumbnail.alt;
-  lightboxTitle.textContent = card.querySelector('.project-caption > span').textContent;
+  lightboxTitle.textContent = card.querySelector('.project-caption > span').firstChild.textContent.trim();
   lightboxCount.textContent = `${String(currentPhoto + 1).padStart(2, '0')} / ${String(galleryCards.length).padStart(2, '0')}`;
 }
 galleryCards.forEach((card, index) => card.addEventListener('click', () => {
@@ -46,3 +46,12 @@ lightbox.addEventListener('close', () => {
   previousFocus?.focus({ preventScroll: true });
 });
 window.matchMedia('(min-width: 701px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
+
+const moreProjects = document.querySelector('.projects-more');
+moreProjects.addEventListener('click', () => {
+ const expanded = moreProjects.getAttribute('aria-expanded') === 'true';
+ galleryCards.slice(7).forEach(card => { card.hidden = expanded; });
+ moreProjects.setAttribute('aria-expanded', String(!expanded));
+ moreProjects.innerHTML = `${expanded ? 'Ver mais projetos' : 'Ver menos projetos'} <span aria-hidden="true">${expanded ? '→' : '↑'}</span>`;
+ if (!expanded) galleryCards[7].focus({preventScroll:true});
+});
