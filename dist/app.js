@@ -48,10 +48,4 @@ lightbox.addEventListener('close', () => {
 window.matchMedia('(min-width: 701px)').addEventListener('change', event => { if (event.matches) closeMenu(); });
 
 const moreProjects = document.querySelector('.projects-more');
-moreProjects.addEventListener('click', () => {
- const expanded = moreProjects.getAttribute('aria-expanded') === 'true';
- galleryCards.slice(7).forEach(card => { card.hidden = expanded; });
- moreProjects.setAttribute('aria-expanded', String(!expanded));
- moreProjects.innerHTML = `${expanded ? 'Ver mais projetos' : 'Ver menos projetos'} <span aria-hidden="true">${expanded ? '→' : '↑'}</span>`;
- if (!expanded) galleryCards[7].focus({preventScroll:true});
-});
+moreProjects.addEventListener('click', () => galleryCards[0].click());
